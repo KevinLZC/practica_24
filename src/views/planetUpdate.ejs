@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/assets/style.css" type=text/css rel=stylesheet />
+  <title>Update Planets</title>
+</head>
+<body>
+  <h1>Actualizar planeta</h1>
+  <!--Formulario para agregar planetas-->
+  <form action='/updatePlanet' method='POST' class="form1">
+    <label for='name'>Nombre:</label>
+    <input type='text' id='name' name='name' value="<%= `${myPlanet.name}` %>"> <br><br>
+    <label for='order'>Orden en el sistema:</label>
+    <input type='number' id='order' name='order' value="<%= `${myPlanet.orderFromSun}` %>"> <br><br>
+    <label for='rings'>Tiene anillos</label>
+    <!--Se utiliza el operador ternario para obtener y mostrar el estado de los anillos-->
+    <input type='checkbox' id='rings' name='rings' <%= myPlanet.hasRings ? "checked" : "" %> /> <br><br>
+    <label for='atmosphere'>Atmósfera principal:</label> 
+    <input type='text' id='atmosphere' name='atmosphere' value="<%= `${myPlanet.mainAtmosphere}` %>"> <br><br>
+    <label>Temperatura de la superficie:</label><br><br>
+    <label for='min'>Mínima</label>
+    <input type='number' id='min' name='min' value="<%= `${myPlanet.surfaceTemperatureC.min}` %>"> <br><br>
+    <label for='mean'>Promedio</label>
+    <input type='number' id='mean' name='mean' value="<%= `${myPlanet.surfaceTemperatureC.mean}` %>"> <br><br>
+    <label for='max'>Máxima</label>
+    <input type='number' id='max' name='max' value="<%= `${myPlanet.surfaceTemperatureC.max}` %>"> <br><br>
+    <label for='max'>ID</label>
+    <input type='text' id='objId' name='objId' value="<%= `${myPlanet._id}` %>"> <br><br>
+    <button type='submit'>Actualizar</button>
+  </form>
+  <!--Botón para volver de manera manual a la tabla-->
+  <a href='/planets'>
+    <input type='submit' value='Volver'>
+  </a>
+</body>
+</html>
